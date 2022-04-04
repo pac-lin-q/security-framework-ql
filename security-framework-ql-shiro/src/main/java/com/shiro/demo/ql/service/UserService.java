@@ -6,7 +6,7 @@ public interface UserService {
 
     UserInfo getUserInfo(String userId);
 
-    boolean checkUserPWD(UserInfo user);
+    boolean checkUserPWD(String userPwd,String userTel);
     
     void addUserInfo(UserInfo user);
 }

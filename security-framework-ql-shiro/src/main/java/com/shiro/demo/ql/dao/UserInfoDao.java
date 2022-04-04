@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserInfoDao extends JpaRepository<UserInfo,Long> {
 
-    UserInfo findUserInfosById(String userTel);
+    UserInfo findUserInfosByUserTel(String userTel);
 
-    UserInfo findUserInfo(UserInfo userInfo);
+    UserInfo findUserInfoByUserPwdAndUserTel(String userPwd,String userTel);
+//    UserInfo findUserInfo(UserInfo userInfo);
 }
