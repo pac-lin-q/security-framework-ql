@@ -8,3 +8,11 @@ spring:
 #    password:
     username: root
     type: com.zaxxer.hikari.HikariDataSource
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    encoding: utf-8
+    suffix: .html
+    mode: HTML5
+    servlet:
+      content-type: text/html
