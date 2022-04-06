@@ -1,7 +1,9 @@
 package com.shiro.demo.ql.controller;
 
+import com.shiro.demo.ql.constants.CommConstants;
 import com.shiro.demo.ql.entity.UserInfo;
 import com.shiro.demo.ql.service.UserService;
+import com.shiro.demo.ql.utils.EncodingUserPwd;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -28,9 +30,9 @@ public class UserLonginController {
 
 
     @PostMapping(value = "/login")
-    public String goLogin(UserInfo userInfo){
+    public String goLogin(UserInfo userInfo) throws Exception {
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userInfo.getUserTel(),userInfo.getUserPwd());
+        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userInfo.getUserTel(), EncodingUserPwd.encryptEcb(CommConstants.SM_KEY,userInfo.getUserPwd()));
         try {
             subject.login(usernamePasswordToken);
         } catch (UnknownAccountException e) {

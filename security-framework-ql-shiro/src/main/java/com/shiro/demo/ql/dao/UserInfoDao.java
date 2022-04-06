@@ -8,5 +8,6 @@ public interface UserInfoDao extends JpaRepository<UserInfo,Long> {
     UserInfo findUserInfosByUserTel(String userTel);
 
     UserInfo findUserInfoByUserPwdAndUserTel(String userPwd,String userTel);
+
 //    UserInfo findUserInfo(UserInfo userInfo);
 }
